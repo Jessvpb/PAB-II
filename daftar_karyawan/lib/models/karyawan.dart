@@ -12,11 +12,10 @@ class Karyawan {
 
   factory Karyawan.fromJson(Map<String, dynamic> json) {
     return Karyawan(
-      nama: json['nama'],
-      umur: json['umur'],
-      alamat: Alamat.fromJson(json['alamat']),
-      hobi: List<String>.from(json['hobi']),
-    );
+        nama: json['nama'],
+        umur: json['umur'],
+        alamat: Alamat.fromJson(json['alamat']),
+        hobi: List<String>.from(json['hobi']));
   }
 }
 

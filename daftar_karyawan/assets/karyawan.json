@@ -1,7 +1,7 @@
 [
   {
     "nama": "Budi Setiawan",
-    "usia": 30,
+    "umur": 30,
     "alamat": {
       "jalan": "Jl. Pahlawan",
       "kota": "Surabaya",
@@ -10,8 +10,8 @@
     "hobi": ["membaca", "bersepeda"]
   },
   {
-    "nama": "Jane Doe",
-    "usia": 25,
+    "nama": "Ferdinan Lubis",
+    "umur": 25,
     "alamat": {
       "jalan": "Jl. Cipto",
       "kota": "Jakarta",
