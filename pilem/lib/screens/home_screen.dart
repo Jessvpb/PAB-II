@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilem/models/movie.dart';
+import 'package:pilem/screens/detail_screen.dart';
 import 'package:pilem/services/api_services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,20 +43,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Pilem'),
+      appBar: AppBar(
+        title: const Text('Pilem'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          // TODO:Panggil Method yang menampilkan all movies, trending, dan popular movies
+          children: [
+            _buildMovieList('All Movies', _allMovies),
+            _buildMovieList('Trending Movies', _trendingMovies),
+            _buildMovieList('Popular Movies', _popularMovies),
+          ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            // TODO:Panggil Method yang menampilkan all movies, trending, dan popular movies
-            children: [
-              _buildMovieList('All Movies', _allMovies),
-              _buildMovieList('Trending Movies', _trendingMovies),
-              _buildMovieList('Popular Movies', _popularMovies),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -68,7 +70,7 @@ Widget _buildMovieList(String title, List<Movie> movies) {
         child: Text(
           title,
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -82,7 +84,10 @@ Widget _buildMovieList(String title, List<Movie> movies) {
           itemBuilder: (context, index) {
             final Movie movie = movies[index];
             return GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailScreen(movie: movie))),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
